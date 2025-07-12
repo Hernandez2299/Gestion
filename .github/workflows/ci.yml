@@ -1,0 +1,20 @@
+name: CI Básico
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  validar-codigo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Validación simulada
+        run: |
+          echo "Verificando existencia de archivos..."
+          test -f index.html && echo "index.html existe"
+          test -f main.js && echo "main.js existe"
+          echo "Todo correcto "
